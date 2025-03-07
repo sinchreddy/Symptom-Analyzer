@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Details</title>
+    <style>
+        body, html {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f8ff;
+            height: auto;
+            display: center;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .go-back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #0074D9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .go-back-btn:hover {
+            background-color: #005BB5;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #004080;
+            font-size: 36px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #search-bar {
+            padding: 15px;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #search-bar:focus {
+            box-shadow: 0px 4px 15px rgba(0, 0, 255, 0.4);
+            border-color: #0074D9;
+        }
+
+        .disease-list {
+            list-style-type: none;
+            padding: 0;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .disease-list li {
+            background: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 20px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .disease-list li:hover {
+            transform: scale(1.05);
+            background: #e0f7ff;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .disease-details {
+            display: none;
+            background-color: #f4faff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-left: 5px solid #0074D9;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .disease-list li:hover .disease-details {
+            display: block;
+        }
+
+        .disease-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #004080;
+            text-transform: capitalize;
+        }
+
+        .disease-details h3 {
+            font-size: 20px;
+            color: #0074D9;
+            margin-bottom: 10px;
+        }
+
+        .disease-details p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .disease-list li::before {
+            content: "🔍 ";
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+        }
+
+        .disease-list li:hover::before {
+            content: "💡";
+        }
+
+        .disease-list li:nth-child(odd) {
+            background: #e6f7ff;
+        }
+
+        .disease-list li:nth-child(even) {
+            background: #d9f2ff;
+        }
+    </style>
+</head>
+<body><center>
+    <button class="go-back-btn" onclick="window.location.href='/'">Go back to Home</button>
+    <h1>Disease Information</h1>
+    <input type="text" id="search-bar" onkeyup="filterDiseases()" placeholder="Search for a disease...">
+    <ul id="disease-list" class="disease-list">
+        <li>
+            <div class="disease-name">Influenza</div>
+            <div class="disease-details">
+                <h3>Influenza - Disease Details</h3>
+                <p>Influenza (Flu) is a contagious respiratory illness caused by influenza viruses. It can cause mild to severe illness and can lead to hospitalization or death.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Dengue Fever</div>
+            <div class="disease-details">
+                <h3>Dengue Fever - Disease Details</h3>
+                <p>Dengue Fever is a viral illness transmitted by mosquitoes. Symptoms include high fever, headache, pain behind the eyes, joint and muscle pain, and rash.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Pneumonia</div>
+            <div class="disease-details">
+                <h3>Pneumonia - Disease Details</h3>
+                <p>Pneumonia is an infection of the lungs that causes inflammation and fluid in the air sacs, leading to difficulty breathing and fever.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Typhoid</div>
+            <div class="disease-details">
+                <h3>Typhoid - Disease Details</h3>
+                <p>Typhoid is a bacterial infection caused by Salmonella typhi, leading to symptoms such as fever, abdominal pain, and weakness.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Jaundice</div>
+            <div class="disease-details">
+                <h3>Jaundice - Disease Details</h3>
+                <p>Jaundice is a condition where the skin and eyes turn yellow due to excess bilirubin. It is often a sign of liver problems such as hepatitis.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Eczema</div>
+            <div class="disease-details">
+                <h3>Eczema - Disease Details</h3>
+                <p>Eczema is a condition that causes the skin to become red, itchy, and inflamed. It can occur due to allergic reactions or environmental factors.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Chickenpox</div>
+            <div class="disease-details">
+                <h3>Chickenpox - Disease Details</h3>
+                <p>Chickenpox is a highly contagious viral infection that causes itchy rashes, fever, and fatigue.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Tuberculosis</div>
+            <div class="disease-details">
+                <h3>Tuberculosis - Disease Details</h3>
+                <p>Tuberculosis (TB) is a bacterial infection that primarily affects the lungs, causing coughing, weight loss, and fatigue.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Asthma</div>
+            <div class="disease-details">
+                <h3>Asthma - Disease Details</h3>
+                <p>Asthma is a chronic disease that causes difficulty breathing due to inflammation and narrowing of the airways. Symptoms include wheezing and shortness of breath.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">COVID-19</div>
+            <div class="disease-details">
+                <h3>COVID-19 - Disease Details</h3>
+                <p>COVID-19 is a viral respiratory illness caused by the SARS-CoV-2 virus. It leads to symptoms such as fever, cough, and loss of taste or smell.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Hypertension</div>
+            <div class="disease-details">
+                <h3>Hypertension - Disease Details</h3>
+                <p>Hypertension (high blood pressure) is a condition where the blood pressure in the arteries is consistently high, increasing the risk of heart disease and stroke.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Polio</div>
+            <div class="disease-details">
+                <h3>Polio - Disease Details</h3>
+                <p>Polio is a viral infection that can cause paralysis and is spread through contaminated water or food.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Malaria</div>
+            <div class="disease-details">
+                <h3>Malaria - Disease Details</h3>
+                <p>Malaria is a life-threatening disease caused by parasites transmitted through the bites of infected mosquitoes, causing fever, chills, and flu-like symptoms.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Hepatitis</div>
+            <div class="disease-details">
+                <h3>Hepatitis - Disease Details</h3>
+                <p>Hepatitis is an inflammation of the liver, often caused by viral infections. Hepatitis A, B, and C are the most common types.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Migraine</div>
+            <div class="disease-details">
+                <h3>Migraine - Disease Details</h3>
+                <p>Migraines are severe headaches often accompanied by nausea, vomiting, and sensitivity to light and sound.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Alzheimer’s Disease</div>
+            <div class="disease-details">
+                <h3>Alzheimer’s Disease - Disease Details</h3>
+                <p>Alzheimer’s is a neurodegenerative disease that causes memory loss, confusion, and changes in behavior.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Cholera</div>
+            <div class="disease-details">
+                <h3>Cholera - Disease Details</h3>
+                <p>Cholera is an infectious disease caused by the bacterium Vibrio cholerae, leading to severe diarrhea and dehydration.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Measles</div>
+            <div class="disease-details">
+                <h3>Measles - Disease Details</h3>
+                <p>Measles is a highly contagious viral disease that causes a rash, fever, and coughing. It can lead to serious complications.</p>
+            </div>
+        </li>
+        <li>
+            <div class="disease-name">Anemia</div>
+            <div class="disease-details">
+                <h3>Anemia - Disease Details</h3>
+                <p>Anemia is a condition where there is a lack of healthy red blood cells, leading to fatigue, weakness, and pale skin.</p>
+            </div>
+        </li>
+    </ul>
+</center>
+    <script>
+        function filterDiseases() {
+            var input, filter, list, items, i, txtValue;
+            input = document.getElementById('search-bar');
+            filter = input.value.toUpperCase();
+            list = document.getElementById('disease-list');
+            items = list.getElementsByTagName('li');
+
+            for (i = 0; i < items.length; i++) {
+                txtValue = items[i].textContent || items[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

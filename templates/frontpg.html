@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Home - Symptom Analyzer</title>
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+
+       body {
+           font-family: Arial, sans-serif;
+           background: #f4f8fc;
+           color: #333;
+           display: flex;
+           flex-direction: column;
+           min-height: 100vh;
+           scroll-behavior: smooth;
+       }
+
+       header {
+           background: #1F3A93;
+           color: #fff;
+           padding: 1rem 2rem;
+           display: flex;
+           align-items: center;
+           position: sticky;
+           top: 0;
+           z-index: 1000;
+       }
+
+       .logo {
+           display: flex;
+           align-items: center;
+           gap: 1rem;
+       }
+
+       header img {
+           height: 50px;
+       }
+
+       header h1 {
+           margin: 0;
+           font-size: 2rem;
+       }
+
+       nav {
+           display: flex;
+           gap: 1.5rem;
+           margin-left: auto;
+       }
+
+       nav a {
+           color: #fff;
+           text-decoration: none;
+           font-weight: bold;
+           padding: 0.5rem 1rem;
+           border-radius: 4px;
+           transition: background 0.3s ease;
+       }
+
+       nav a:hover {
+           background: #163567;
+       }
+
+       main {
+           max-width: 1200px;
+           margin: 2rem auto;
+           padding: 2rem;
+           background: #fff;
+           border-radius: 8px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           text-align: center;
+           flex-grow: 1;
+       }
+
+       .content {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           gap: 2rem;
+       }
+
+       .content img {
+           max-width: 100%;
+           height: auto;
+           border-radius: 8px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           animation: fadeIn 2s;
+       }
+
+       @keyframes fadeIn {
+           from {
+               opacity: 0;
+           }
+           to {
+               opacity: 1;
+           }
+       }
+
+       .content h2 {
+           font-size: 2rem;
+           margin-bottom: 1rem;
+           color: #1F3A93;
+       }
+
+       .content p {
+           font-size: 1.1rem;
+           line-height: 1.6;
+           margin: 1rem 0;
+       }
+
+       .btn, .know-more-btn {
+           background: #1F3A93;
+           color: white;
+           padding: 0.8rem 1.5rem;
+           border: none;
+           border-radius: 50px;
+           font-size: 1rem;
+           cursor: pointer;
+           transition: background 0.3s ease, transform 0.2s ease;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+       }
+
+       .btn:hover, .know-more-btn:hover {
+           background: #163567;
+           transform: translateY(-3px);
+       }
+
+       .btn:active, .know-more-btn:active {
+           transform: translateY(1px);
+       }
+
+       .features {
+           background: #f4f8fc;
+           padding: 2rem 1rem;
+           text-align: center;
+       }
+
+       .features h2 {
+           font-size: 2rem;
+           margin-bottom: 1rem;
+           color: #1F3A93;
+       }
+
+       .features .feature-cards {
+           display: flex;
+           justify-content: space-around;
+           gap: 1rem;
+           flex-wrap: wrap;
+       }
+
+       .feature-card {
+           background: #fff;
+           padding: 1.5rem;
+           border-radius: 8px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           width: 300px;
+           text-align: center;
+       }
+
+       .feature-card img {
+           height: 100px;
+           margin-bottom: 1rem;
+       }
+
+       .feature-card h3 {
+           font-size: 1.5rem;
+           margin-bottom: 0.5rem;
+           color: #1F3A93;
+       }
+
+       footer {
+           text-align: center;
+           padding: 1rem 0;
+           background: #1F3A93;
+           color: #fff;
+           margin-top: auto;
+       }
+
+       footer a {
+           color: #fff;
+           text-decoration: underline;
+       }
+
+       footer a:hover {
+           color: #ddd;
+       }
+   </style>
+</head>
+<body>
+
+   <header>
+       <div class="logo">
+           <img src="/static/images/logo1.jpg">
+           <h1>Symptom Analyzer</h1>
+       </div>
+       <nav>
+           <a href="">Home</a>
+           <a href="/contact">Contact</a>
+       </nav>
+   </header>
+
+   <main id="home">
+       <section class="content">
+           <div class="content-text">
+               <h2>Analyze Your Symptoms with Ease</h2>
+               <p>
+                   The Symptom Analyzer is a tool designed to help you identify potential conditions based on the symptoms you provide.
+                   It uses a predefined database of symptoms and conditions to deliver quick and reliable results.
+               </p>
+           </div>
+           <img src="/static/images/brain.gif">
+           <button class="know-more-btn" onclick="window.location.href='/index';">Get Started</button>
+       </section>
+   </main>
+
+   <section id="features" class="features">
+       <h2>Why Choose Symptom Analyzer?</h2>
+       <div class="feature-cards">
+           <div class="feature-card">
+               <img src="/static/images/db.jpeg" alt="Database Icon">
+               <h3>Comprehensive Database</h3>
+               <p>Access an extensive database of symptoms and conditions for accurate analysis.</p>
+           </div>
+           <div class="feature-card">
+               <img src="/static/images/ai.jpeg" alt="AI Icon">
+               <h3>AI-Powered Analysis</h3>
+               <p>Leverage advanced AI for fast and precise symptom evaluation.</p>
+           </div>
+           <div class="feature-card">
+               <img src="/static/images/friendly.jpeg" alt="User-Friendly Icon">
+               <h3>Easy to Use</h3>
+               <p>A simple, user-friendly interface that anyone can navigate.</p>
+           </div>
+       </div>
+   </section>
+
+   <footer>
+       <p>© 2024 Symptom Analyzer | <a href="/contact">Contact Us</a></p>
+   </footer>
+
+</body>
+</html>
